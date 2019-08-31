@@ -21,7 +21,7 @@ public class RabbitPrinter {
         this.rabbitTemplate = rabbitTemplate;
     }
 
-    @RabbitListener(queues = "rpc.print.queue")
+    @RabbitListener(queues = "print.queue")
     public void listen(Message message) {
         Address replyTo = message.getMessageProperties().getReplyToAddress();
 

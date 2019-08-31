@@ -22,7 +22,7 @@ public class ReactorRabbitMQApplication {
     public CommandLineRunner commandLineRunner(RabbitMQGateway rabbitMQGateway) {
         return args ->
                 Flux.just("Tom", "Jerry", "Mickey", "Donald", "Goofy")
-                        .flatMap(rabbitMQGateway::sendMessage)
+                        .flatMap(rabbitMQGateway::reverseNameAndPrintOnExternalSystem)
                         .map(result -> {
                             LOG.info(String.format("Printed out %s", result));
                             return result;
